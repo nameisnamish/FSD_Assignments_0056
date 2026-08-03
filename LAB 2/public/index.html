@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KINETIC // Linear-Grade Infrastructure</title>
+  <meta name="description" content="KINETIC - Minimalist, high-performance product showcase inspired by Linear and Apple design engineering." />
+  
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Three.js for 3D/4D Hyper-Sphere Background Matrix -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/styles.css" />
+</head>
+<body>
+
+  <!-- Interactive 3D/4D Canvas & Glowing Orbs -->
+  <canvas id="bg-4d-canvas"></canvas>
+  <div class="orb-aura orb-1"></div>
+  <div class="orb-aura orb-2"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- Header -->
+  <header class="header-glass">
+    <div class="nav-content">
+      <a href="#" class="brand-mark">
+        <div class="brand-icon-box">
+          <i class="fa-solid fa-bolt-lightning"></i>
+        </div>
+        <span>KINETIC</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#features" class="nav-link active">Features</a>
+        <a href="#performance" class="nav-link">Performance</a>
+        <a href="#developers" class="nav-link">Developers</a>
+        <a href="#enterprise" class="nav-link">Enterprise</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light / Dark Mode" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="btn btn-secondary" onclick="openModal()">Sign In</button>
+        <button class="btn btn-primary" onclick="openModal()">Get Access</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="main-wrapper">
+    <section class="hero-area">
+      <div class="pill-badge">
+        <span class="badge-dot"></span>
+        <span>Kinetic Engine v3.0 is now live</span>
+      </div>
+
+      <h1 class="hero-heading gradient-heading">
+        Engineered for speed.<br>
+        <span class="gradient-accent">Built for perfection.</span>
+      </h1>
+
+      <p class="hero-lead">
+        The complete infrastructure platform for building real-time applications, sub-millisecond edge API routing, and autonomous spatial workflows.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="openModal()">Start Building</button>
+        <button class="btn btn-secondary btn-lg" onclick="openModal()">Read Documentation</button>
+      </div>
+    </section>
+
+    <!-- Bento Canvas Layout -->
+    <section class="bento-container">
+
+      <!-- Card 1: Real-time Telemetry Graph (8 cols) -->
+      <article class="bento-card col-8">
+        <div>
+          <div class="card-label">Spatial Intelligence</div>
+          <h3 class="card-header-title">Autonomous Load Balancing</h3>
+          <p class="card-header-desc">Sub-millisecond packet rerouting with zero manual configuration.</p>
+        </div>
+
+        <div class="graph-preview-box">
+          <svg class="graph-svg" viewBox="0 0 500 140" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="graph-gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path class="graph-path" d="M0,100 Q70,20 140,80 T280,40 T420,90 T500,15" />
+            <circle class="graph-node" cx="280" cy="40" />
+            <circle class="graph-node" cx="500" cy="15" />
+          </svg>
+        </div>
+      </article>
+
+      <!-- Card 2: Minimal Uptime Metric (4 cols) -->
+      <article class="bento-card col-4">
+        <div>
+          <div class="card-label">Global Availability</div>
+          <h3 class="card-header-title">99.999% SLA</h3>
+          <p class="card-header-desc">Multi-region active redundancy across 140 PoPs.</p>
+        </div>
+
+        <div class="metric-flex">
+          <div class="metric-big" id="uptime-num">99.99</div>
+          <div class="metric-unit"><i class="fa-solid fa-shield-check"></i> Operational</div>
+        </div>
+      </article>
+
+      <!-- Card 3: Interactive Scaling Simulator (4 cols) -->
+      <article class="bento-card col-4">
+        <div>
+          <div class="card-label">Traffic Simulation</div>
+          <h3 class="card-header-title">Dynamic Compute</h3>
+          <p class="card-header-desc">Adjust request throughput to model capacity.</p>
+        </div>
+
+        <div class="interactive-slider-box">
+          <div class="control-row">
+            <span>Throughput</span>
+            <span class="slider-val" id="req-val">50,000 req/s</span>
+          </div>
+          <input type="range" id="req-slider" min="10000" max="200000" step="10000" value="50000" class="clean-range">
+
+          <div class="stats-grid-mini">
+            <div class="mini-stat">
+              <div class="mini-lbl">Latency</div>
+              <div class="mini-val" id="latency-val">0.7ms</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-lbl">Pods</div>
+              <div class="mini-val" id="pods-val">8</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-lbl">Savings</div>
+              <div class="mini-val" id="savings-val">65%</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Code SDK Snippet (8 cols) -->
+      <article class="bento-card col-8">
+        <div>
+          <div class="card-label">Developer First</div>
+          <h3 class="card-header-title">Type-Safe Edge SDK</h3>
+          <p class="card-header-desc">Deploy in three lines of code with native TypeScript support.</p>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <button class="copy-btn" id="btn-copy" onclick="copyCode()">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <div class="terminal-body">
+            <code>
+              <span class="syn-kw">import</span> { Kinetic } <span class="syn-kw">from</span> <span class="syn-str">'@kinetic/sdk'</span>;<br><br>
+              <span class="syn-kw">const</span> client = <span class="syn-kw">new</span> Kinetic({ key: process.env.KINETIC_KEY });<br>
+              <span class="syn-kw">await</span> client.stream(<span class="syn-str">'telemetry'</span>, (data) =&gt; console.log(data));
+            </code>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: Audio Visualizer Strip (12 cols) -->
+      <article class="bento-card col-12">
+        <div class="audio-row">
+          <div class="audio-meta">
+            <div class="card-label">Neural Audio Engine</div>
+            <h3 class="card-header-title">Low-Latency Audio Processing</h3>
+            <p class="card-header-desc">Stream and isolate high-fidelity frequencies live in the browser.</p>
+          </div>
+
+          <button class="play-toggle-btn" id="play-btn" onclick="toggleAudio()">
+            <i class="fa-solid fa-play" id="play-icon"></i>
+          </button>
+
+          <div class="eq-strip" id="eq-strip">
+            <div class="eq-column"></div><div class="eq-column"></div><div class="eq-column"></div>
+            <div class="eq-column"></div><div class="eq-column"></div><div class="eq-column"></div>
+            <div class="eq-column"></div><div class="eq-column"></div><div class="eq-column"></div>
+            <div class="eq-column"></div><div class="eq-column"></div><div class="eq-column"></div>
+            <div class="eq-column"></div><div class="eq-column"></div><div class="eq-column"></div>
+            <div class="eq-column"></div><div class="eq-column"></div><div class="eq-column"></div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Modal Dialog -->
+  <dialog id="app-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px;">Get Early Access to Kinetic</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Experience infrastructure designed for the next decade of web development.</p>
+      <input type="email" placeholder="name@company.com" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-subtle); background: #050508; color: #fff; margin-bottom: 14px;">
+      <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="closeModal()">Request Access Key</button>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="footer-clean">
+    <div class="footer-inner">
+      <span>&copy; 2026 KINETIC Systems Inc. All rights reserved.</span>
+      <span>Linear & Apple Inspired Interface</span>
+    </div>
+  </footer>
+
+  <script src="%PUBLIC_URL%/script.js"></script>
+</body>
+</html>
