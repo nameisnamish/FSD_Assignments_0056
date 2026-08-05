@@ -1,0 +1,94 @@
+/* =========================================================
+   CRIMSON RED & PITCH BLACK DESIGN SYSTEM
+   Matching Reference Layout Aesthetic
+   ========================================================= */
+
+:root {
+  --bg-pitch: #08080a;
+  --bg-card: #111115;
+  --bg-card-border: rgba(255, 255, 255, 0.08);
+
+  --crimson-main: #e60023;
+  --crimson-glow: rgba(230, 0, 35, 0.4);
+  --crimson-dark: #800014;
+
+  --text-primary: #ffffff;
+  --text-muted: #a0a0a5;
+  --text-subtle: #6e6e73;
+
+  --font-giant: 'Bebas Neue', sans-serif;
+  --font-script: 'Caveat', cursive;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 980px;
+
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-pitch);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   GLOBAL SCROLL REVEAL TRANSITION ANIMATIONS
+   ========================================================= */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays for child grid elements */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-pitch);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--crimson-main);
+  border-radius: 10px;
+}
+
+/* Printmode */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
