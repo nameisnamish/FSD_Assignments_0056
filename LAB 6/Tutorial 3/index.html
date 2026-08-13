@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial 3 - Student Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Registration Form Section -->
+    <div class="card form-card">
+      <h2>Student Registration</h2>
+      <p class="subtitle">Enter student details for registration and validation demo.</p>
+
+      <form id="registrationForm" novalidate>
+        
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="e.g. John Doe">
+          <small class="error-msg" id="nameError"></small>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="e.g. john@gmail.com">
+          <small class="error-msg" id="emailError"></small>
+        </div>
+
+        <!-- Age Field -->
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" placeholder="e.g. 20">
+          <small class="error-msg" id="ageError"></small>
+        </div>
+
+        <button type="submit" id="submitBtn">Register Student</button>
+
+      </form>
+    </div>
+
+    <!-- Dynamic Registered Students List Section -->
+    <div class="card list-card">
+      <h2>Registered Students</h2>
+      <p class="subtitle">Live dynamically updated list via JavaScript DOM Manipulation.</p>
+
+      <div class="table-wrapper">
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Dynamically populated rows will appear here -->
+            <tr id="emptyRow">
+              <td colspan="4" class="empty-msg">No registered students yet. Fill the form to add students.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* Styles for Tutorial 3: Student Registration Practical */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
+  color: #334155;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #0f172a;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 0.88rem;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+input {
+  padding: 10px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+input.input-error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+button {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Table Styling */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #94a3b8;
+  padding: 24px;
+  font-style: italic;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: auto;
+}
+
+.btn-delete:hover {
+  background: #fca5a5;
+}
